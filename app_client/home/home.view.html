@@ -1,0 +1,41 @@
+<div class="row">
+  <div class="col-xs-12 col-sm-8" ng-controller="homeCtrl as hc">
+    <div class="error">{{ vm.message }}</div>
+    <div class="row" style="display: block;">
+      <div class="input-group">
+        <textarea class="form-control custom-control" rows="1" ng-model="vm.textModel" placeholder="Add public comment" style="resize:none"></textarea>
+        <span ng-click="vm.comment()" class="input-group-addon btn btn-primary">ADD COMMENT</span>
+      </div>
+      <div id="comments">
+        <div class="col-xs-12" ng-repeat="transport in vm.rootComments | orderBy:'date':true">
+          <div class="comment" style="margin-top: 10px;">
+            <div class="comment-image" style="float: left;">
+              <img src="https://dimmi-static.azureedge.net/img/noprofile.png?d=171127" height="70px" width="70px">
+            </div>
+            <div class="comment-body" style="margin-left: 75px;">
+              <div class="comment-header">
+                <span style="font-size: 15pt;">
+                  {{ transport.author }}
+                </span>
+                <span>
+                  {{ transport.date | date : 'yyyy-M-d h:m:s'}}
+                </span>
+              </div>
+              <div class="comment-content">
+                <p>
+                  {{ transport.data }}
+                </p>
+              </div>
+              <div class="comment-write-reply">
+                <a href="" ng-click="vm.writeReply(transport._id, $event)" role="button">REPLY</a>
+              </div>
+              <div class="comment-footer">
+                <a href="" ng-click="vm.makeReply(transport._id, $event)" role="button">Show replies &darr;&darr;</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,25 @@
+<header class="masthead">
+  <h3 class="text-muted">Байцаагч туслах</h3>
+  <nav class="navbar navbar-expand-md navbar-light bg-light rounded mb-3">
+    <button type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" class="navbar-toggler"><span class="navbar-toggler-icon"></span></button>
+    <div id="navbarCollapse" class="collapse navbar-collapse">
+      <ul class="navbar-nav text-md-center nav-justified w-100">
+        <li class="nav-item active"><a href="/" class="nav-link">
+            <h5>
+              Нүүр
+            </h5><span class="sr-only">(current)</span></a></li>
+        <li class="nav-item"><a href="help" class="nav-link">
+            <h5>Ашиглах заавар</h5></a></li>
+        <li class="nav-item"><a href="analyse" class="nav-link">
+            <h5>Анализ</h5></a></li>
+        <li class="nav-item">
+          <div ng-controller="locSelectCtrl as c">
+            <select ng-model="locSelected" ng-change="getHoPa(locSelected)" data-ng-options="loc as loc.name for loc in locs" class="form-control">
+              <option value="">Байршлаа сонгоно уу</option>
+            </select>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </nav>
+</header>

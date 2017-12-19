@@ -1,0 +1,48 @@
+doctype html
+html(ng-app='BaitsaagchApp')
+  head
+    meta(charset='utf-8')
+    meta(name='viewport', content='width=device-width, initial-scale=1, shrink-to-fit=yes')    
+    link(href="http://bfairbike.com/media/1016/brunt-logo-sm.png?width=100&height=100" rel="shortcut icon")
+    title= title
+    link(rel='stylesheet', href='/bootstrap/css/bootstrap.css')
+    link(rel='stylesheet', href='/stylesheets/style.css')
+  body
+   header.masthead
+    h3.text-muted Байцаагч туслах
+    nav.navbar.navbar-expand-md.navbar-light.bg-light.rounded.mb-3
+     button.navbar-toggler(type='button', data-toggle='collapse', data-target='#navbarCollapse', aria-controls='navbarCollapse', aria-expanded='false', aria-label='Toggle navigation')
+      span.navbar-toggler-icon
+     #navbarCollapse.collapse.navbar-collapse
+      ul.navbar-nav.text-md-center.nav-justified.w-100
+       li.nav-item.active
+        a.nav-link(href='#')
+         h5 
+          | Нүүр 
+         span.sr-only (current)
+       li.nav-item
+        a.nav-link(href='#')
+         h5 Ашиглах заавар
+       li.nav-item
+        a.nav-link(href='#')
+         h5 Анализ
+       li.nav-item
+        div(ng-controller="locSelectCtrl as c")
+          select.form-control(ng-model='locSelected', ng-change='getHoPa(locSelected)', data-ng-options='loc as loc.name for loc in locs')
+            option(value='')Байршлаа сонгоно уу
+   .container
+      div(ng-view)
+        block content
+   footer.footer
+    center
+     |&copy; 2017 Web Programming
+  script(src='/angular/angular.min.js')
+  script(src='/lib/angular-route.min.js')
+  //script(src='/angular/baitsaagch.min.js')
+  script(src='/app.js')
+  script(src='/home/home.controller.js')
+  script(src='/home/locSelect.controller.js')
+  script(src='/common/services/baitsaagchData.service.js')
+  script(src='/common/services/myGlobalVars.service.js')
+  script(src='/javascripts/jquery-1.11.1.min.js')
+  script(src='/bootstrap/js/bootstrap.min.js')

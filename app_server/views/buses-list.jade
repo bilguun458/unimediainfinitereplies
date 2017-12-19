@@ -1,0 +1,26 @@
+extends layout
+
+block content
+  .row
+    .col-xs-12.col-sm-8
+      .row.list-group
+        each bus in buses
+          .col-xs-12.list-group-item.list-group-item-action.flex-column.align-items-start
+           .d-flex.w-100.justify-content-between
+            h4= bus.name
+            h6= bus.date
+           .direction
+            span from:
+            h6= bus.from
+            span to:
+            h6= bus.to
+           p
+            a.btn.btn-outline-success(href='/bus', role='button') Дэлгэрэнгүй &raquo;
+    .col-xs-12.col-sm-4 
+     .container
+      .card
+       .card-title
+        h3= sidebarTitle
+       .card-block
+        img(src='https://previews.123rf.com/images/oxygen64/oxygen641208/oxygen64120800029/15028184-City-bus-Stock-Vector-bus-logo-transport.jpg', width='310px')
+        h5= sidebar
